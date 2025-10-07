@@ -1,6 +1,11 @@
 import re
+import argparse
 
-with open("data.txt", "r") as file:
+parser = argparse.ArgumentParser()
+parser.add_argument('fname', type=str, help='name of file')
+args = parser.parse_args()
+filename = args.fname
+with open(filename, "r") as file:
 	text = file.readlines()
 lastname = ''
 firstname = ''
