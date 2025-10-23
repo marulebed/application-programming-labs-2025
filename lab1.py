@@ -17,7 +17,7 @@ def process_file(filename: str):
 
 def parse_form(form: str):
     """
-    Разбор одной анкеты. Выбрасывает ValueError, если нет имени или пола.
+    Порядок одной анкеты. Выбрасывает ValueError, если нет имени или пола.
     """
     lastname_match = re.search(r'Фамилия:\s*(.+)', form)
     firstname_match = re.search(r'Имя:\s*(.+)', form)
