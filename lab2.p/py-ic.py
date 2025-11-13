@@ -175,25 +175,12 @@ def main() -> None:
         validate_args(args)
         run_downloads(args)
         source_for_iter = args.csv if Path(args.csv).exists() else args.out_dir
-        it = PathIterator(source_for_iter, root=args.out_dir)
-        _ = iter(it)
-        count = 0
-        for row in it:
-            if not hasattr(row, "__iter__"):
-                raise TypeError(
-                    f"Элемент {row!r} не является итерируемым (не список/кортеж)."
-                )
-            if len(row) < 2:
-                raise ValueError(
-                    f"Неполная строка из итератора: {row!r} (ожидалось минимум 2 значения: abs, rel)"
-                )
-            _abs = str(row[0])
-            _rel = str(row[1])
-            count += 1
-        print(f"Проверка итератора пройдена: {count} элементов.")
+        pathIterator = PathIterator(source_for_iter, root=args.out_dir)
+        for el in pathIterator:
+            print(el)
+        
     except Exception as e:
         print(e, file=sys.stderr)
-        sys.exit(2)
 
 
 if __name__ == "__main__":
