@@ -22,10 +22,9 @@ def add_orientation_column(
         path = Path(str(p))
 
         try:
-            # Открываем изображение безопасно (кириллица поддерживается)
             with Image.open(path) as img:
-                img = img.convert("RGB")       # на всякий случай
-                arr = np.array(img)           # ← вот где используется NumPy
+                img = img.convert("RGB")
+                arr = np.array(img)
         except Exception as e:
             print("Не удалось открыть файл:", path, "| ошибка:", e)
             values.append(None)

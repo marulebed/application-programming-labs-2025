@@ -9,7 +9,6 @@ def load_annotation_csv(csv_path: str | Path) -> pd.DataFrame:
 
     df = pd.read_csv(csv_path, sep=";")
 
-    # Чистим названия колонок (убираем пробелы и BOM)
     df.columns = [c.strip().replace("\ufeff", "") for c in df.columns]
 
     return df

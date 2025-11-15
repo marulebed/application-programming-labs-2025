@@ -13,7 +13,6 @@ from visualization import plot_orientation_histogram
 def main() -> None:
     """Главная функция лабораторной работы."""
 
-    # !!! ПОДСТАВЬ СВОЙ РЕАЛЬНЫЙ ПУТЬ К CSV !!!
     input_csv = (
         r"C:\Users\Владелец\application-programming"
         r"\application-programming-labs-2025\lab2.p\bears.csv"
@@ -25,7 +24,6 @@ def main() -> None:
     df = load_annotation_csv(input_csv)
     print("КОЛОНКИ CSV:", df.columns.tolist())
 
-    # Добавление ориентации (теперь без root_dir!)
     df = add_orientation_column(df)
 
     df_sorted = sort_by_orientation(df)
